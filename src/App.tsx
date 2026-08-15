@@ -1,30 +1,62 @@
-import { useReveal } from '@/hooks/useReveal';
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import Studio from '@/components/Studio';
-import GalleryPreview from '@/components/GalleryPreview';
-import GalleryFull from '@/components/GalleryFull';
-import Animation from '@/components/Animation';
-import Team from '@/components/Team';
-import Contact from '@/components/Contact';
-import ScrollProgress from '@/components/ScrollProgress';
+import { useEffect, useState } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Studio from "./components/Studio";
+import GalleryPreview from "./components/GalleryPreview";
+import Footer from "./components/Contact";
+import { useReveal } from "@/hooks/useReveal";
+import GalleryFull from "@/components/GalleryFull";
+import Animation from "@/components/Animation";
+import Team from "@/components/Team";
+import Contact from "@/components/Contact";
+import ScrollProgress from "@/components/ScrollProgress";
 
-function App() {
+export default function App() {
   const containerRef = useReveal<HTMLDivElement>();
 
+  // Додаємо стан для відстеження скролу
+  const [offsetY, setOffsetY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOffsetY(window.scrollY);
+    };
+
+    // Слухаємо скрол. passive: true робить його супер плавним
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div ref={containerRef} className="min-h-screen bg-paper-100">
+    <div ref={containerRef} className="relative w-full min-h-screen bg-black">
+      {/* Навігація */}
       <Navbar />
-      <ScrollProgress />
-      <Hero />
-      <Studio />
-      <GalleryPreview />
-      <GalleryFull />
-      <Animation />
-      <Team />
-      <Contact />
+
+      {/* 
+        РАМКА ВІДЕО: залишається прилиплою (sticky) до верху
+      */}
+      <div className="sticky top-0 h-screen w-full z-0 overflow-hidden">
+        {/* 
+          САМЕ ВІДЕО: Їде вгору зі швидкістю 40% (0.4) від швидкості скролу! 
+          Це і є той самий Parallax ефект, який дає "життя" і глибину.
+        */}
+        <div
+          className="w-full h-full"
+          style={{ transform: `translateY(-${offsetY * 0.35}px)` }}
+        >
+          <Hero />
+        </div>
+      </div>
+
+      {/* 
+        Світлий блок має z-10 (вище за відео).
+        Тут стоїть bg-[#F7F7F7], який перекриває відео, коли ти скролиш.
+      */}
+      <div className="relative z-10 bg-[#F7F7F7] shadow-[0_-20px_50px_rgba(0,0,0,0.3)]">
+        <Studio />
+        <GalleryPreview />
+        <Footer />
+      </div>
     </div>
   );
 }
-
-export default App;
