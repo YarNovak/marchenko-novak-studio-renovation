@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { navLinks } from "@/content";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -8,7 +9,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
+      // ВАРІАНТ 2 (КРАЩИЙ): Спрацьовує рівно тоді, коли ми проскролили 10% екрана
+      // (ідеально синхронізується з фіксацією відео з App.tsx)
+      setScrolled(window.scrollY > window.innerHeight * 0.45);
 
       const sections = ["studio", "gallery", "animation", "team", "contact"];
       for (const id of sections) {
@@ -22,6 +25,7 @@ export default function Navbar() {
         }
       }
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
@@ -51,25 +55,7 @@ export default function Navbar() {
           }`}
         >
           <a href="/" className="flex items-center gap-2">
-            <svg
-              viewBox="0 0 120 60"
-              // ЗМЕНШЕНО РОЗМІР: замість h-8 md:h-10 тепер h-4 md:h-5
-              // Це зробить логотип ідеально сумірним із дрібним шрифтом text-xs
-              className="h-7 md:h-8 w-auto fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <text
-                x="50%"
-                y="55%"
-                dominantBaseline="middle"
-                textAnchor="middle"
-                fontFamily="Georgia, Times New Roman, serif"
-                fontSize="65"
-                letterSpacing="-3"
-              >
-                mm
-              </text>
-            </svg>
+            <Logo className="h-8 md:h-9 w-auto" />
           </a>
         </button>
 

@@ -3,12 +3,12 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Studio from "./components/Studio";
 import GalleryPreview from "./components/GalleryPreview";
-import Footer from "./components/Contact";
+import Footer from "./components/Footer";
 import { useReveal } from "@/hooks/useReveal";
 import GalleryFull from "@/components/GalleryFull";
 import Animation from "@/components/Animation";
 import Team from "@/components/Team";
-import Contact from "@/components/Contact";
+import Contact from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 
 export default function App() {
@@ -54,7 +54,7 @@ export default function App() {
       */}
       <div className="relative z-10 bg-[#F7F7F7] shadow-[0_-20px_50px_rgba(0,0,0,0.3)]">
         <Studio />
-        <GalleryPreview />
+
         <Footer />
       </div>
     </div>

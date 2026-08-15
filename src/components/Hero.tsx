@@ -28,14 +28,9 @@ export default function Hero() {
           Architectural Visualization Studio
         </p>
 
-        <h1 className="text-5xl md:text-7xl font-serif tracking-widest text-center">
+        <h1 className="text-6xl md:text-8xl font-serif tracking-widest text-center">
           Marchenko Novak
         </h1>
-        {
-          <p className="mt-4 text-lg md:text-2xl font-serif italic tracking-wider text-center">
-            Studio
-          </p>
-        }
       </div>
     </div>
   );
