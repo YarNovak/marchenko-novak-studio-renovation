@@ -7,7 +7,7 @@ export default function Logo({ className = "" }: LogoProps) {
     <svg
       viewBox="0 0 436 272"
       preserveAspectRatio="xMidYMid meet"
-      // fill-current вшиваємо сюди базово, а розміри передаватимемо через className
+   
       className={`fill-current ${className}`}
       xmlns="http://www.w3.org/2000/svg"
     >

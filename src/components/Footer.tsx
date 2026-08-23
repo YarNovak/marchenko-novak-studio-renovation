@@ -1,28 +1,27 @@
 export default function Footer() {
   return (
-    <footer className="py-12 md:py-16 px-6 bg-[#EFEFEF] border-t border-black/5">
+    <footer className="pt-12 md:pt-16 pb-6 md:pb-8 px-6 bg-[#EFEFEF]">
       <div className="max-w-[1400px] mx-auto">
-        {/* Слово CONTACT повністю прибрано */}
-
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-6 items-start">
           <div className="md:col-span-7 reveal">
-            {/* Пошта стала акуратнішою: text-2xl md:text-4xl */}
-            <a
-              href="mailto:hello@marchenkonovak.com"
-              className="font-serif text-1xl md:text-2xl text-ink-900 hover:text-ink-500 transition-colors duration-300"
-            >
-              hello@marchenkonovak.com
-            </a>
+         
+            <div className="flex flex-col gap-3">
+              <a
+                href="mailto:hello@marchenkonovak.com"
+                
+                className="font-sans text-sm md:text-[15px] tracking-wide font-light text-ink-900 hover:text-ink-500 transition-colors duration-300 w-fit"
+              >
+                hello@marchenkonovak.com
+              </a>
 
-            {/* Відступи між поштою і телефоном також зменшено */}
-            <div className="mt-6 flex flex-col gap-2 font-sans text-xs md:text-[13px] font-light text-ink-500 leading-relaxed">
               <a
                 href="tel:+380975133585"
-                className="hover:text-ink-900 transition-colors w-fit"
+                className="font-sans text-xs md:text-[13px] font-light text-ink-500 hover:text-ink-900 transition-colors w-fit"
               >
                 +380975133585
               </a>
-              <p>
+
+              <p className="font-sans text-xs md:text-[13px] font-light text-ink-500 leading-relaxed">
                 Sichovykh Striltsiv St, 23A,
                 <br />
                 Kyiv, 04053, Ukraine
@@ -50,13 +49,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Відступ до копірайту значно скорочено (mt-16) */}
-        <div className="mt-12 md:mt-16 pt-6 border-t border-ink-200/60 reveal flex flex-col md:flex-row justify-between items-start gap-4">
-          <p className="font-sans text-[10px] tracking-widest text-ink-400 uppercase">
+        <div className="mt-12 md:mt-16 flex justify-center">
+          <p className="font-sans text-[10px] tracking-widest text-ink-400 uppercase text-center">
             © 2019 - 2026 Marchenko Novak Studio
-          </p>
-          <p className="font-sans text-[10px] tracking-widest text-ink-400 uppercase">
-            All rights reserved
           </p>
         </div>
       </div>
