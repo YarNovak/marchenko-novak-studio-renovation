@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
     <div className="w-full max-w-[980px] mx-auto flex flex-col">
-      {/* Надзаголовок (Тримаємо єдиний стиль із Team та Gallery) */}
+      {/* Надзаголовок */}
       <div className="reveal mb-12 md:mb-16">
         <span className="font-sans text-[10px] tracking-[0.2em] font-medium text-ink-400 uppercase">
           Contact
@@ -9,10 +9,14 @@ export default function Contact() {
       </div>
 
       <div className="flex flex-col md:flex-row md:justify-between items-start w-full">
-        {/* === ЛІВА ЧАСТИНА: Заголовок + Лінія + Текст (Ідеальні 330px) === */}
+        {/* === ЛІВА ЧАСТИНА: Заголовок + Лінія + Текст === */}
         <div className="w-full md:w-[330px] shrink-0 mb-16 md:mb-0 reveal">
-          {/* Головний заголовок із засічками */}
-          <h1 className="font-serif text-[44px] md:text-[52px] lg:text-[56px] text-black leading-[1.05] antialiased">
+          {/* 
+            ОНОВЛЕНИЙ ЗАГОЛОВОК:
+            Збільшено розмір (до 52px), прибрано завеликий трекінг, 
+            ущільнено висоту рядка (leading-[1.1]).
+          */}
+          <h1 className="font-['WixHelveticaLight'] text-[40px] md:text-[48px] lg:text-[52px] tracking-[0.02em] font-normal text-black leading-[1.1] antialiased">
             Let's work
             <br />
             together.
@@ -21,19 +25,18 @@ export default function Contact() {
           {/* Елегантна роздільна лінія */}
           <div className="w-12 h-px bg-ink-900/20 mt-8 mb-8"></div>
 
-          {/* Новий, більш преміальний та професійний текст */}
+          {/* Преміальний текст */}
           <p className="font-['WixHelveticaLight'] text-[14px] text-ink-600 leading-[1.6em] antialiased">
             We collaborate with architects, developers, and designers to craft
             compelling visual narratives. Share your vision with us.
           </p>
         </div>
 
-        {/* === ПРАВА ЧАСТИНА: Форма (Ідеальні 607px) === */}
+        {/* === ПРАВА ЧАСТИНА: Форма === */}
         <div
           className="w-full md:w-[607px] shrink-0 reveal"
           style={{ transitionDelay: "0.1s" }}
         >
-          {/* pt-2 вирівнює поля форми рівно по верхній межі великого тексту зліва */}
           <form
             className="flex flex-col gap-10 md:gap-12 pt-2"
             onSubmit={(e) => e.preventDefault()}
