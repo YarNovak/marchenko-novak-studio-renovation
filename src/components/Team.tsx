@@ -1,41 +1,50 @@
-import { founders } from '@/content';
+import { founders } from "@/content";
 
 export default function Team() {
   return (
-    <section id="team" className="py-32 md:py-48 px-6 lg:px-12 bg-paper-100">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="reveal">
-          <span className="font-sans text-xs tracking-ultra-wide font-light text-ink-400 uppercase">
-            Team
-          </span>
-        </div>
-
-        <div className="mt-16 grid md:grid-cols-2 gap-12 lg:gap-20">
-          {founders.map((founder, i) => (
-            <div key={founder.name} className={`reveal reveal-delay-${i + 1}`}>
-              <div className="gallery-item aspect-[4/5] bg-paper-300">
-                <img
-                  src={founder.image}
-                  alt={founder.name}
-                  className="w-full h-full object-cover image-grayscale"
-                  loading="lazy"
-                />
-              </div>
-              <div className="mt-6 border-t border-ink-200 pt-6">
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-ink-900">
-                  {founder.name}
-                </h3>
-                <p className="mt-3 font-sans text-xs tracking-wide-sm font-light text-ink-400 uppercase">
-                  {founder.role}
-                </p>
-                <p className="mt-5 max-w-xl font-sans text-sm font-light text-ink-500 leading-[1.65]">
-                  {founder.bio}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+    <div className="w-full max-w-[980px] mx-auto flex flex-col">
+      {/* ДОДАНО: Єдиний стиль надзаголовка для гармонії з іншими сторінками */}
+      <div className="reveal mb-12 md:mb-16">
+        <span className="font-sans text-[10px] tracking-[0.2em] font-medium text-ink-400 uppercase">
+          Founders
+        </span>
       </div>
-    </section>
+
+      <div className="flex flex-col gap-[100px] md:gap-[140px]">
+        {founders.map((founder) => (
+          <div
+            key={founder.name}
+            className="flex flex-col md:flex-row md:justify-between items-start w-full reveal"
+          >
+            {/* ФОТОГРАФІЯ */}
+            <div className="w-full md:w-[330px] md:h-[420px] shrink-0 bg-[#e8e8e8] mb-6 md:mb-0">
+              <img
+                src={founder.image}
+                alt={founder.name}
+                className="w-full h-full object-cover object-top grayscale"
+              />
+            </div>
+
+            {/* ТЕКСТОВИЙ БЛОК */}
+            <div className="w-full md:w-[607px] shrink-0 flex flex-col pt-1">
+              <h3 className="font-['WixHelveticaBold'] text-[14px] font-normal text-black leading-[1.3em] antialiased">
+                {founder.name}
+              </h3>
+
+              <p className="font-['WixHelveticaLight'] text-[14px] font-normal text-black leading-[1.3em] antialiased">
+                {founder.role}
+              </p>
+
+              <div className="mb-[36px]"></div>
+
+              {/* ЗМІНЕНО: leading-[1.5em] замість 1.3em, щоб текст легше читався і гармоніював з Animation */}
+              <p className="font-['WixHelveticaLight'] text-[14px] font-normal text-black leading-[1.5em] text-justify antialiased">
+                {founder.bio}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

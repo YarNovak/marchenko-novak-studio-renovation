@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -13,19 +12,16 @@
   background: #2a2a2a;
 }
 
-
 ::-webkit-scrollbar-thumb {
   background: #737373;
   border-radius: 6px;
- 
+
   border: 3px solid #2a2a2a;
 }
-
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a3a3a3;
 }
-
 
 * {
   scrollbar-width: thin;
@@ -235,4 +231,21 @@ body {
     black 92%,
     transparent 100%
   );
+}
+@font-face {
+  font-family: "WixHelveticaLight";
+  src: url("https://static.parastorage.com/fonts/v2/8eac109b-0fa9-42bf-a305-43e471e23779/v1/helvetica-w01-light.woff2")
+    format("woff2");
+  font-weight: 400; /* Це врятує нас від розмиття */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "WixHelveticaBold";
+  src: url("https://static.parastorage.com/fonts/v2/2f12de04-5ca4-4ada-9e66-a958673b12b5/v1/helvetica-w01-bold.woff2")
+    format("woff2");
+  font-weight: 400; /* Це врятує нас від розмиття */
+  font-style: normal;
+  font-display: swap;
 }

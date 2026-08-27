@@ -3,10 +3,12 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Studio from "../components/Studio";
 import Footer from "../components/Footer";
-import { useReveal } from "@/hooks/useReveal";
+
+// ТЕПЕР ВИКОРИСТОВУЄМО ГЛОБАЛЬНИЙ ХУК, ЯК НА ІНШИХ СТОРІНКАХ
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Home() {
-  const containerRef = useReveal<HTMLDivElement>();
+  useScrollReveal(); // Запускаємо анімації для всіх .reveal на сторінці
   const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full min-h-screen bg-black">
+    <div className="relative w-full min-h-screen bg-black">
       <Navbar />
 
       {/* Hero з Відео */}
@@ -32,7 +34,6 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 bg-[#F7F7F7] shadow-[0_-20px_50px_rgba(0,0,0,0.3)]">
-        {/* МАГІЯ ТУТ: Просто викликаємо компоненти без scrollY */}
         <Studio />
         <Footer />
       </div>

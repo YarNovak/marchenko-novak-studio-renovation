@@ -19,7 +19,7 @@ export function useScrollReveal() {
 
         // rootMargin з додатнім значенням (50px) означає, що браузер почне
         // анімацію ще ЗА 50 пікселів до того, як картинка взагалі з'явиться на екрані!
-        rootMargin: "0px 0px 50px 0px",
+        rootMargin: "0px 0px 100px 0px",
       }
     );
 

@@ -154,13 +154,15 @@ export default function ImageModal({
       {/* КОНТЕЙНЕР ДЛЯ ФОТОГРАФІЙ */}
       <div
         className="relative w-full h-full flex items-center justify-center cursor-default"
-        onClick={(e) => e.stopPropagation()}
+        // ПРИБРАЛИ звідси onClick={(e) => e.stopPropagation()}
       >
         {prevImg && (
           <img
             key={`prev-${prevImg}`}
             src={prevImg}
             alt="Previous view"
+            // ДОДАЛИ блокування кліку сюди
+            onClick={(e) => e.stopPropagation()}
             className="absolute max-w-full max-h-full object-contain shadow-xl animate-crossfade-out"
           />
         )}
@@ -169,6 +171,8 @@ export default function ImageModal({
           key={`curr-${currentImg}`}
           src={currentImg}
           alt="Current view"
+          // ДОДАЛИ блокування кліку сюди
+          onClick={(e) => e.stopPropagation()}
           className="absolute max-w-full max-h-full object-contain shadow-xl animate-crossfade-in"
         />
       </div>
